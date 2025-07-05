@@ -20,7 +20,10 @@ function Login() {
     e.preventDefault();
     try {
       const res = await axios.post(`${url}/api/auth/login`, formData,
-        { withCredentials: true }
+        { withCredentials: true },
+        headers: {
+          "Content-Type": "application/json",
+        }
       );
 
 
