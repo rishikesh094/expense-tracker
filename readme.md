@@ -2,7 +2,6 @@
 
 A personal finance tracking web application that helps users manage their expenses and income. Users can securely log in, add transactions, filter by category/date, and view a pie chart summary.
 
-
 ---
 
 ## 🛠 Technologies Used
