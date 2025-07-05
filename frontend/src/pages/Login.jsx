@@ -19,11 +19,12 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${url}/api/auth/login`, formData,
-        { withCredentials: true },
+      const res = await axios.post(`${url}/api/auth/login`, formData, {
+        withCredentials: true,
         headers: {
-          "Content-Type": "application/json",
+              "Content-Type": "application/json"
         }
+      }
       );
 
 
