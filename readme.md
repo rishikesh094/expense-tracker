@@ -26,7 +26,6 @@ A personal finance tracking web application that helps users manage their expens
    - `cd frontend`
    - `npm install`
    - `npm start`
-4. Visit [http://localhost:3000](http://localhost:3000)
 
 ---
 
@@ -62,10 +61,39 @@ A personal finance tracking web application that helps users manage their expens
 
 ---
 
+
+## 📦 Dummy Data for Testing
+
+You can manually insert these transactions to test the application.
+
+```json
+[
+  {
+    "description": "Lunch at Subway",
+    "amount": -150,
+    "date": "2025-07-01",
+    "category": "Food"
+  },
+  {
+    "description": "Monthly Salary",
+    "amount": 50000,
+    "date": "2025-07-01",
+    "category": "Salary"
+  },
+  {
+    "description": "Bus fare",
+    "amount": -50,
+    "date": "2025-07-02",
+    "category": "Travel"
+  },
+  
+]
+
+
 ## 🎥 Demo Video
-👉 [Watch Demo](https://your-demo-video-link.com)
+👉 [Watch Demo](https://youtu.be/rCCtrH_Woo8)
 
 ---
 
 ## 🌐 Live App
-👉 [https://your-deployment-link.com](https://your-deployment-link.com)
+👉 [https://expense-tracker-pz8m.onrender.com/](https://expense-tracker-pz8m.onrender.com/)
