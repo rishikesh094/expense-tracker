@@ -58,6 +58,10 @@ app.get("/logout", (req, res) => {
   }
 });
 
+app.get('/',(req , res)=>{
+  res.send("<h1>Server Is live / Routers Req</h1>");
+})
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
