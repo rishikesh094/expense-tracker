@@ -62,6 +62,15 @@ A personal finance tracking web application that helps users manage their expens
 ---
 
 
+## 🎥 Demo Video
+👉 [Watch Demo](https://youtu.be/rCCtrH_Woo8)
+
+---
+
+## 🌐 Live App
+👉 [https://expense-tracker-pz8m.onrender.com/](https://expense-tracker-pz8m.onrender.com/)
+
+
 ## 📦 Dummy Data for Testing
 
 You can manually insert these transactions to test the application.
@@ -88,12 +97,3 @@ You can manually insert these transactions to test the application.
   },
   
 ]
-
-
-## 🎥 Demo Video
-👉 [Watch Demo](https://youtu.be/rCCtrH_Woo8)
-
----
-
-## 🌐 Live App
-👉 [https://expense-tracker-pz8m.onrender.com/](https://expense-tracker-pz8m.onrender.com/)
