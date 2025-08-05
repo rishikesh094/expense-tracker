@@ -45,7 +45,7 @@ app.get("/logout", (req, res) => {
     res.clearCookie("token", {
       httpOnly: true,
       sameSite: "strict",
-      secure: process.env.NODE_ENV === "production", // send secure only in production
+      secure: true
     });
 
     // Send success response
