@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import url from "../services/service";
 import { AuthContext } from "../context/authContext";
+import { toast } from "react-toastify";
 
 function Login() {
   const { setLogin } = useContext(AuthContext);
@@ -27,7 +28,12 @@ function Login() {
       if (res.status == 200) {
         const data = res.data;
         setLogin(data);
-        alert("Login Successfully");
+        toast.success("Login Successfully",{style: {
+    backgroundColor: "#e6fffa", // Light teal
+    color: "#234e52",           // Dark teal text
+    border: "1px solid #81e6d9",
+    fontWeight: "bold"
+  }});
         navigate("/");
       } else {
 
@@ -38,7 +44,7 @@ function Login() {
 
     } catch (err) {
       console.error(err)
-      alert("Login failed")
+      toast.error("Login failed")
     }
   }
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import url from "../services/service";
+import { toast } from "react-toastify";
 
 function Register() {
     const navigate = useNavigate();
@@ -46,10 +47,10 @@ function Register() {
 
         try {
             const res = await axios.post(`${url}/api/auth/register`, formData);
-            alert("Registration successful!");
+            toast.success("Registration successful!");
             navigate("/login");
         } catch (err) {
-            alert("Registration failed");
+            toast.error("Registration failed");
         }
     };
 

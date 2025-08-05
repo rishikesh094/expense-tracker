@@ -5,6 +5,7 @@ import useVerfy from "../context/useVerify";
 import axios from "axios";
 import url from "../services/service";
 import { Menu, X } from "lucide-react"; // For hamburger icons (need lucide-react installed)
+import { toast } from "react-toastify";
 
 function Navbar() {
   useVerfy();
@@ -16,7 +17,9 @@ function Navbar() {
     try {
       const res = await axios.get(`${url}/logout`, { withCredentials: true });
       if (res.status === 200) {
-        alert(res.data.msg);
+     
+       toast.success("You have been logged out.");
+
         setLogin(null);
         navigate("/login");
       }

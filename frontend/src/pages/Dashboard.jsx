@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import url from "../services/service";
+import { toast } from "react-toastify";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -38,32 +39,49 @@ function Dashboard() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post(`${url}/api/transactions`, formData, {
-        withCredentials: true
-      });
-      setFormData({ description: "", amount: "", category: "Food", date: "" });
-      fetchTransactions();
-    } catch (err) {
-      console.error(err);
-    }
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const amount = parseFloat(formData.amount);
 
-  const handleUpdate = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.put(`${url}/api/transactions/${editId}`, formData, {
-        withCredentials: true
-      });
-      setFormData({ description: "", amount: "", category: "Food", date: "" });
-      setEditId(null);
-      fetchTransactions();
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  if (amount < 0 && Math.abs(amount) > balance) {
+    toast.error("Insufficient balance to make this expense.");
+    return;
+  }
+
+  try {
+    await axios.post(`${url}/api/transactions`, formData, {
+      withCredentials: true
+    });
+    setFormData({ description: "", amount: "", category: "Food", date: "" });
+    fetchTransactions();
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+
+ const handleUpdate = async (e) => {
+  e.preventDefault();
+  
+  const amount = parseFloat(formData.amount);
+
+  if (amount < 0 && Math.abs(amount) > balance) {
+    toast.error("Insufficient balance to make this expense.");
+    return;
+  }
+
+  try {
+    await axios.put(`${url}/api/transactions/${editId}`, formData, {
+      withCredentials: true
+    });
+    setFormData({ description: "", amount: "", category: "Food", date: "" });
+    setEditId(null);
+    fetchTransactions();
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 
   const handleDelete = async (id) => {
     try {
