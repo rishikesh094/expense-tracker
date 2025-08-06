@@ -44,7 +44,7 @@ app.get("/logout", (req, res) => {
     // Clear the token cookie
     res.clearCookie("token", {
       httpOnly: true,
-      sameSite: "strict",
+      sameSite: "none",
       secure: true
     });
 

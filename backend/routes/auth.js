@@ -7,8 +7,8 @@ const router = express.Router();
 // POST /api/auth/register
 router.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
-  console.log(req.body)
-  console.log("Hiii")
+  console.log(req.body);
+  console.log("Hiii");
   try {
     // Check if user already exists
     const existingUser = await UserModel.findOne({ email });
@@ -51,12 +51,18 @@ router.post("/login", async (req, res) => {
     if (!isPasswordMatch)
       return res.status(400).json({ message: "Invalid credentials" });
 
-    const token = jwt.sign({ id: user._id,name:user.name,email:user.email }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
-    });
+    const token = jwt.sign(
+      { id: user._id, name: user.name, email: user.email },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "7d",
+      }
+    );
 
     res.cookie("token", token, {
       httpOnly: true,
+      sameSite: "none", 
+      secure: true,
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
     res.json({
