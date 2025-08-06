@@ -1,3 +1,3 @@
-const url = "http://localhost:5000";
+const url = "https://expense-tracker-uxpj.onrender.com";
 
 export default url;
